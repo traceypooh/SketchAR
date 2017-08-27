@@ -1,3 +1,46 @@
+# Tracey's weekend experiment with SketchUp home remodel and Apple's ARKit (beta) for augmented reality.
+
+### Goal: import a model (in this case, a remodel) to overlay onto existing real world that you can walk around and 'experience' and compare.
+See also my youtube video for the results.  Descriptions and even the video results can't convey how neat our future is!
+
+### Altered, updated, and leveraged from a youtube comment based off a Unity tutorial..
+
+# Steps to import SketchUp into ARKit App:
+- Get Sierra or newer, download xCode 9 Beta
+- Get this sample code/app from the Apple developer site:
+https://developer.apple.com/sample-code/wwdc/2017/PlacingObjects.zip
+- Use this zip file's xcode for your new app template since its very good at manipulating the model
+(helpful for experimentation)
+- Use Sketchup and Export your model as "DAE" (collada format).
+- ALternatively, download a dae model from 3D warehouse (or import one to a new sketchup project), eg: https://3dwarehouse.sketchup.com/model/e047cac847927d677591d1bf8931b62/Typical-Timber-Frame-House  unzip if downloading from 3D warehouse directly.
+- Rename .dae file to 'sketchup.dae' (you can more easily try other models later shorten steps by same name).
+- Leave the subdir name as is (texture assets - images) next to the sketchup.dae file
+- Put sketchup.dae and imagery subdir in new folder named 'sketchup' in xcode project under 'Models.scnassets' subdir (should have 'cup', 'candle', and other model subdirs)
+- In xCode, click on sketchup.dae file and load/inspect in the editor.
+- Convert the dae file to scn format from the Editor menu. (optional)
+- Rotate the model by selecting euler x-coordinate change it to -90. (otherwise it will load the model on its side and you won't be able to correct from within the app).  See my youtube video for context here -- not obvious!
+- Edit the VirtualObjects.json -- copy the 3 lines from 'cup' entry, and rename 'cup' to 'sketchup'.
+- in 'Assets.xcassets'
+  - copy cup.imageset to new subdir sketchup.imageset
+  - you can change the two .png files to 60x60 and 90x90 files for custom imagery for app's placing menu (optional)
+
+Tada!  When you build to your phone (required: iOS 11 -- beta -- 'burner' iPhone 7S anyone? 8-) the app should auto-launch.  Try the cup, candle, and vase, etc. first.  You should now have an extra 'sketchup' button to try. Depending on your X/Y/Z grid setup and scale -- it may not load in front of you -- look around the space and it may be hovering above you. Just pull (one finger careful drag) until you get it on the floor/surface).﻿  You can also rotate the model orientation via careful two-finger rotate gesture.
+
+For something like a large model (eg: house, remodel) please see my youtube video for tips and tricks on the hardest (oddly) parts -- getting 'into' the model and scale.
+
+# Some helpful links:
+- https://developer.apple.com/arkit/
+- https://developer.apple.com/documentation/arkit#overview
+- https://www.youtube.com/watch?v=oKLwxmBoTFg
+- https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html
+- https://developer.apple.com/swift/resources/
+
+[ _what follows is the original README.md for this PlacingObjects.zip_ ]
+
+---
+
+
+
 # Placing Virtual Objects in Augmented Reality
 
 Follow best practices for visual feedback, gesture interactions, and realistic rendering in AR experiences.
@@ -60,5 +103,3 @@ Provide an area that's large enough for the user to tap (or begin to drag) a vir
 **Avoid interrupting the AR experience.** If the user transitions to another full-screen UI in your app, the AR view might not be in an expected state when they return.
 
 To keep the user in the AR experience while adjusting settings or making a modal selection, use the popover presentation (even on iPhone) for auxiliary view controllers. In this sample, the `SettingsViewController` and `VirtualObjectSelectionViewController` classes use popover presentation.
-
-
