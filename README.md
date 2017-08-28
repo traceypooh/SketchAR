@@ -1,7 +1,7 @@
 # Tracey's weekend experiment with SketchUp home remodel and Apple's ARKit (beta) for augmented reality.
 
 ### Goal: import a model (in this case, a remodel) to overlay onto existing real world that you can walk around and 'experience' and compare.
-See also my youtube video for the results.  Descriptions and even the video results can't convey how neat our future is!
+**See also my youtube video https://youtu.be/FG5SztPF2uY for the results.  Descriptions and even the video results can't convey how neat our future is!**
 
 ### Altered, updated, and leveraged from a youtube comment based off a Unity tutorial..
 
@@ -18,7 +18,7 @@ https://developer.apple.com/sample-code/wwdc/2017/PlacingObjects.zip
 - Put sketchup.dae and imagery subdir in new folder named 'sketchup' in xcode project under 'Models.scnassets' subdir (should have 'cup', 'candle', and other model subdirs)
 - In xCode, click on sketchup.dae file and load/inspect in the editor.
 - Convert the dae file to scn format from the Editor menu. (optional)
-- Rotate the model by selecting euler x-coordinate change it to -90. (otherwise it will load the model on its side and you won't be able to correct from within the app).  See my youtube video for context here -- not obvious!
+- Rotate the model by selecting **euler x-coordinate change it to -90**. (otherwise it will load the model on its side and you won't be able to correct from within the app).  See my youtube video for context here -- not obvious!
 - Edit the VirtualObjects.json -- copy the 3 lines from 'cup' entry, and rename 'cup' to 'sketchup'.
 - in 'Assets.xcassets'
   - copy cup.imageset to new subdir sketchup.imageset
@@ -26,7 +26,7 @@ https://developer.apple.com/sample-code/wwdc/2017/PlacingObjects.zip
 
 Tada!  When you build to your phone (required: iOS 11 -- beta -- 'burner' iPhone 7S anyone? 8-) the app should auto-launch.  Try the cup, candle, and vase, etc. first.  You should now have an extra 'sketchup' button to try. Depending on your X/Y/Z grid setup and scale -- it may not load in front of you -- look around the space and it may be hovering above you. Just pull (one finger careful drag) until you get it on the floor/surface).﻿  You can also rotate the model orientation via careful two-finger rotate gesture.
 
-For something like a large model (eg: house, remodel) please see my youtube video for tips and tricks on the hardest (oddly) parts -- getting 'into' the model and scale.
+For something like a large model (eg: house, remodel) **please see my youtube video https://youtu.be/FG5SztPF2uY for tips and tricks** on the hardest (oddly) parts -- getting 'into' the model and scale.
 
 # Some helpful links:
 - https://developer.apple.com/arkit/
