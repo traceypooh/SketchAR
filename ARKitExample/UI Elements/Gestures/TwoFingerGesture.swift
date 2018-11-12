@@ -70,7 +70,7 @@ class TwoFingerGesture: Gesture {
         // Check if any of the two fingers or their midpoint is touching the object.
         // Based on that, translation, rotation and scale will be enabled or disabled.
         let allPoints = [firstTouchPoint, secondTouchPoint, thirdCorner, fourthCorner, initialMidPoint] + midPoints
-        firstTouchedObject = allPoints.lazy.flatMap { point in
+        firstTouchedObject = allPoints.lazy.compactMap { point in
             return self.virtualObject(at: point)
         }.first
         if let virtualObject = firstTouchedObject {
